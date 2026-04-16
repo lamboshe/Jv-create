@@ -1,0 +1,328 @@
+<a href="https://github.com/lamboshe/AWILI.GRT.POTF.git">Visit GitHub</a>
+<link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Creator - JavaScript Links</title>
+    <style>
+        /* All CSS styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+
+        /* Basic link styling */
+        .styled-link {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        /* Hover effect */
+        .styled-link:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Active/click effect */
+        .styled-link:active {
+            transform: scale(0.95);
+        }
+
+        /* Different color variations */
+        .link-green {
+            background-color: #27ae60;
+        }
+
+        .link-green:hover {
+            background-color: #219a52;
+        }
+
+        .link-red {
+            background-color: #e74c3c;
+        }
+
+        .link-red:hover {
+            background-color: #c0392b;
+        }
+
+        /* Outline link style */
+        .link-outline {
+            background-color: transparent;
+            border: 2px solid #3498db;
+            color: #3498db;
+        }
+
+        .link-outline:hover {
+            background-color: #3498db;
+            color: white;
+        }
+
+        /* Large link */
+        .link-large {
+            padding: 15px 30px;
+            font-size: 18px;
+        }
+
+        /* Small link */
+        .link-small {
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+
+        /* Rounded pill style */
+        .link-pill {
+            border-radius: 50px;
+        }
+
+        /* Section styling */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 4px solid #3498db;
+        }
+
+        .demo-area {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 20px;
+            min-height: 150px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .input-group {
+            margin: 20px 0;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        input[type="text"] {
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔗LAMBOSHE" JavaScript Link Creator</h1>
+        <p class="subtitle">Create and add clickable links dynamically with JavaScript</p>
+
+        <!-- Section 1: Pre-styled links -->
+        <div class="section">
+            <h2>Pre-styled Links</h2>
+            <div id="prestyledLinks" class="demo-area">
+                <!-- Links will be added here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Section 2: Custom link creator -->
+        <div class="section">
+            <h2>Create Your Own Link</h2>
+            <div class="demo-area">
+                <div class="input-group">
+                    <input type="text" id="urlInput" placeholder="Enter URL (e.g., https://lamboshe.com)">
+                    <input type="text" id="textInput" placeholder="Link text">
+                    <button id="createLinkBtn">➕ Create Link</button>
+                    <button id="clearLinksBtn">🗑️ Clear All</button>/button>
+                  <button id="clearLinksBtn">
+                  id="textInput"placeholder="Link text">
+                  <button
+                    id="createLinkBtn> Create LInk<"
+                    🗑️ Clear All</button>/button>
+                  <button id="clearLinksBtn">
+                  
+                </div>
+                <div id="customLinksArea" style="margin-top: 20px; min-height: 100px;">
+                    <!-- Custom links will appear here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Open link automatically -->
+        <div class="section">
+            <h2>Auto-open Links</h2>
+            <div class="demo-area">
+                <button id="openSameTabBtn">Open Google (Same Tab)</button>
+                <button id="openNewTabBtn">Open Google (New Tab)</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to create a styled link
+        function createStyledLink(url, text, className) {
+            const link = document.createElement('a');
+            link.href = url;
+            link.textContent = text;
+            link.target = '_blank';
+            link.className = `styled-link ${className}`;
+            return link;
+        }
+
+        // Add pre-styled links to the page
+        const prestyledContainer = document.getElementById('prestyledLinks');
+        
+        const links = [
+            { url: 'https://www.google.com', text: 'Google', class: '' },
+            { url: 'https://www.github.com', text: 'GitHub', class: 'link-green' },
+            { url: 'https://www.youtube.com', text: 'YouTube', class: 'link-red' },
+            { url: 'https://www.stackoverflow.com', text: 'Stack Overflow', class: 'link-outline' },
+            { url: 'https://www.wikipedia.org', text: 'Wikipedia (Large)', class: 'link-large' },
+            { url: 'https://www.twitter.com', text: 'Twitter (Small)', class: 'link-small' },
+            { url: 'https://www.netflix.com', text: 'Netflix (Pill)', class: 'link-pill' },
+        ];
+
+        links.forEach(link => {
+            const linkElement = createStyledLink(link.url, link.text, link.class);
+            prestyledContainer.appendChild(linkElement);
+        });
+
+        // Custom link creator functionality
+        let customLinks = [];
+
+        function addCustomLink(url, text) {
+            if (!url || !text) {
+                alert('Please enter both URL and link text');
+                return false;
+            }
+            
+            // Add https:// if not present
+            if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                url = 'https://' + url;
+            }
+            
+            const linkContainer = document.createElement('div');
+            linkContainer.style.margin = '10px 0';
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.textContent = text;
+            link.target = '_blank';
+            link.className = 'styled-link link-green';
+            link.style.margin = '0 10px 0 0';
+            
+            const removeBtn = document.createElement('button');
+            removeBtn.textContent = 'Remove';
+            removeBtn.style.backgroundColor = '#e74c3c';
+            removeBtn.style.padding = '6px 12px';
+            removeBtn.onclick = function() {
+                linkContainer.remove();
+                customLinks = customLinks.filter(l => l !== linkContainer);
+            };
+            
+            linkContainer.appendChild(link);
+            linkContainer.appendChild(removeBtn);
+            
+            document.getElementById('customLinksArea').appendChild(linkContainer);
+            customLinks.push(linkContainer);
+            return true;
+        }
+
+        // Create link button event
+        document.getElementById('createLinkBtn').addEventListener('click', function() {
+            const url = document.getElementById('urlInput').value;
+            const text = document.getElementById('textInput').value;
+            
+            if (addCustomLink(url, text)) {
+                document.getElementById('urlInput').value = '';
+                document.getElementById('textInput').value = '';
+            }
+        });
+
+        // Clear all custom links
+        document.getElementById('clearLinksBtn').addEventListener('click', function() {
+            customLinks.forEach(link => link.remove());
+            customLinks = [];
+        });
+
+        // Open links automatically
+        document.getElementById('openSameTabBtn').addEventListener('click', function() {
+            window.location.href = 'https://www.google.com';
+        });
+
+        document.getElementById('openNewTabBtn').addEventListener('click', function() {
+            window.open('https://www.google.com', '_blank');
+        });
+
+        // Enter key support
+        document.getElementById('urlInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('createLinkBtn').click();
+            }
+        });
+        
+        document.getElementById('textInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('createLinkBtn').click();
+            }
+        });
+    </script>
+</body>
+</html>
