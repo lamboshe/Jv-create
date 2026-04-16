@@ -1,0 +1,101 @@
+/* Basic link styling */
+.styled-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.styled-link:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Active/click effect */
+.styled-link:active {
+    transform: scale(0.95);
+}
+
+/* Different color variations */
+.link-green {
+    background-color: #27ae60;
+}
+
+.link-green:hover {
+    background-color: #219a52;
+}
+
+.link-red {
+    background-color: #e74c3c;
+}
+
+.link-red:hover {
+    background-color: #c0392b;
+}
+
+/* Outline link style */
+.link-outline {
+    background-color: transparent;
+    border: 2px solid #3498db;
+    color: #3498db;
+}
+
+.link-outline:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+/* Large link */
+.link-large {
+    padding: 15px 30px;
+    font-size: 18px;
+}
+
+/* Small link */
+.link-small {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+/* Disabled link */
+.link-disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Icon link style */
+.link-with-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Button group container */
+.link-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Rounded pill style */
+.link-pill {
+    border-radius: 50px;
+}
+
+/* Shadow effect */
+.link-shadow {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.link-shadow:hover {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
